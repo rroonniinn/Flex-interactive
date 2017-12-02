@@ -1,0 +1,114 @@
+$colors: (
+    col1: #3B3F42,
+    col2: #F24C27,
+    col3: #FBBA42,
+    col4: #FEFEFE,
+    col5: #56B9D0,      
+    col6: #000, 
+    col7: #333,
+);
+
+@mixin colorBg ($color) {
+    background-color: map-get($colors, $color);
+}
+@mixin colorFont ($color) {
+    color: map-get($colors, $color);
+}
+
+body {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    @include colorBg(col2);    
+}
+
+.wraper-all {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.wraper-menu {
+    @include colorBg(col2);
+    @include colorFont(col4);   
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ul {
+        display: flex;
+    }
+    a {
+        display: block;
+        padding: 10px 20px;
+        margin-left: 15px;
+        @include colorFont(col3); 
+        @include colorBg(col1);        
+        text-decoration: none;
+        border-radius: 20px;  
+        box-shadow: 0px 2px 2px 0px rgba(black, 0.4);
+        transition: 0.7s all;
+        
+        &:hover {
+            @include colorFont(col4); 
+            @include colorBg(col6); 
+        }
+
+        &.not-active {
+            opacity: 0.3;
+            @include colorFont(col7); 
+            @include colorBg(col6); 
+        }
+
+        &.not-active:hover {
+            @include colorFont(col7); 
+            @include colorBg(col6); 
+        }
+        
+    }
+}
+
+.wraper-flex {
+    @include colorBg(col3);
+    flex-grow: 2;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    flex-wrap: wrap;
+
+    .flex-box {
+        @include colorBg(col5);
+        border: 1px solid map-get($colors, col3);
+        border-radius: 6px;
+    }
+
+    .flex-box-item {
+        @include colorBg(col4);
+        @include colorFont(col5);   
+        height: 150px;
+        width: 150px;    
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3px;
+        margin: 5px;
+    }
+
+}
+
+.wraper-footer {
+    @include colorBg(col1);
+    @include colorFont(col4);   
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
