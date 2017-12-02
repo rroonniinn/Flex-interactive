@@ -32,14 +32,16 @@ body {
 .wraper-menu {
     @include colorBg(col2);
     @include colorFont(col4);   
-    height: 100px;
+    padding: 20px 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    ul {
+    
+    .menu-btn ul {
         display: flex;
     }
-    a {
+    
+    a.btn {
         display: block;
         padding: 10px 20px;
         margin-left: 15px;
@@ -65,7 +67,45 @@ body {
             @include colorFont(col7); 
             @include colorBg(col6); 
         }
-        
+    }
+
+    .menu-txt {
+        margin-right: 15px;
+        @include colorFont(col4); 
+        display: flex;
+
+        a, span {
+            padding: 3px 6px;
+        }
+
+        a {
+            text-decoration: none;
+            border-radius: 7px;
+            @include colorFont(col4);  
+            transition: 0.4s all;
+        }
+        a.clicked {
+            @include colorBg(col1);
+        }
+
+        a:hover {
+            @include colorFont(col3); 
+        }
+
+        span {
+            @include colorFont(col1); 
+            font-weight: 700;
+        }
+
+        ul {
+            margin: 0px 10px;
+        }
+
+        li {
+            padding: 5px 0;
+
+        }
+
     }
 }
 
@@ -73,30 +113,26 @@ body {
     @include colorBg(col3);
     flex-grow: 2;
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     // align-items: center;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
 
     .flex-box {
-        @include colorBg(col5);
+        @include colorBg(col4);
         border: 1px solid map-get($colors, col3);
         border-radius: 6px;
-    }
-
-    .flex-box-item {
-        @include colorBg(col4);
-        @include colorFont(col5);   
-        height: 150px;
-        width: 150px;    
-        font-size: 30px;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 3px;
-        margin: 5px;
-    }
+        width: 100px;
 
+        .flex-box-item {
+            font-size: 30px;
+            @include colorFont(col3);   
+        }   
+    }
 }
+
 
 .wraper-footer {
     @include colorBg(col1);
